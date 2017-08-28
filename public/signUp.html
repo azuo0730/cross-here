@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>cross here</title>
+
+		<!-- BootstrapのCSS読み込み -->
+		<link href="bootstrap-4.0.0-beta-dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery読み込み -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- BootstrapのJS読み込み -->
+		<script src="bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
+
+		<!-- 独自スタイルシートの読み込み -->
+		<link href="css/common.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container card">
+		<div class="">
+			<h1 class="cross-here">Cross Here</h1>
+
+			<noscript>java scriptを有効にして下さい。<br></noscript>
+			<br>
+			<div class="container">
+				<div id="input-area">
+					<h3>アカウント新規登録</h3>
+					<div class="form-group">
+						<input id="newUserEmail" class="form-control" type="email" placeholder="メールアドレスを入力" required/>
+						<button id="newuserSubmit" type="button" class="btn btn-info">新規登録</button>
+						<br>
+						<br>
+						<ul id="resultNewUser">
+						</ul>
+					</div>
+					　<!-- <button id="testButton" type="button">テスト</button> -->
+				</div>
+			</div>
+
+			<a href="./">戻る</a>
+			<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+			<script src="initializeFirebase.js"></script>
+			<script src="CommonFunc.js"></script>
+			<script src="signUp.js"></script>
+
+		</div>
+		</div>
+	</body>
+</html>
+
+

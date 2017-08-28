@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+		<title>メインページ</title>
+		<link rel="stylesheet" href="css/common.css" type="text/css" />
+	</head>
+	<body>
+		<div id="container">
+			<h1>メインページだよ</h1>
+			<div align="right">
+				<table width="100%">
+					<tr>
+						<td>
+							<p id="loginUserInfo" align="right"></p>
+							<p align="right">
+								<a href="./profile.html">プロフィール編集</a><br>
+								<button id="logout">ログアウト</button>
+							</p>
+						</td>
+						<td width="50">
+							<div class="userImage" /></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="contents">
+				<div class="topNavi">
+					<div class="topNaviColumn">
+
+						<!-- つぶやいったー -->
+						<h2>つぶやいったー</h2>
+						<!-- 新しくつぶやく -->
+						<textarea id="newTweet" type="text" placeholder="今、何をしていますか？"cols="80" rows="5"></textarea>　<button id="newTweetSubmit" type="button">つぶやく</button>
+
+						<!-- テキスト表示用 -->
+						<div id="tweetContentDiv"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+		<script src="initializeFirebase.js"></script>
+		<script src="CommonFunc.js"></script>
+		<script src="main_app.js"></script>
+	</body>
+</html>
+
+

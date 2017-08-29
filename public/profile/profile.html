@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>cross here</title>
+
+		<!-- BootstrapのCSS読み込み -->
+		<link href="../bootstrap-4.0.0-beta-dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery読み込み -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- BootstrapのJS読み込み -->
+		<script src="../bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
+
+		<!-- 独自スタイルシートの読み込み -->
+		<link href="../css/common.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="header">
+			<a href="../main.html"><h1 class="cross-here">Cross Here</h1></a>
+			<p id="loginUserInfo" align="right"></p>
+			<p align="right">
+				<a href="./profile.html">プロフィール編集</a><br>
+				<button id="logout">ログアウト</button>
+			</p>
+		</div>
+		<div class="container card content">
+		<noscript>java scriptを有効にして下さい。<br></noscript>
+			<h2 class="cross-here">プロフィール</h2>
+
+			<div id="contents">
+				<table class="table table-bordered">
+					<tr>
+						<td colspan="2">
+							<div class="currentUserImage" /></div>
+						</td>
+					</tr>
+					<tr>
+						<td width="20%">
+							ニックネーム
+						</td>
+						<td>
+							<input id="displayName" class="form-control" type="input" placeholder="ニックネーム" required/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							イメージ
+						</td>
+						<td>
+							<form>
+								<label>
+									<span class="btn btn-primary">
+										ファイルを選択<input id="userImage" type="file" style="display:none">
+									</span>
+								</label>
+								<div class="userImagePreview" /></div>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							自己紹介
+						</td>
+						<td>
+							<textarea id="selfIntro" type="text" placeholder="あなたは、どんな人ですか？" class="form-control" rows="5"></textarea>
+						</td>
+					</tr>
+				</table>
+				<button id="submit" type="button"  class="btn btn-info">反映</button>
+				<ul id="resultNewUser">
+				</ul>
+				<a href="../main.html">メインページへ</a>
+			</div>
+		</div>
+		<br>
+		<p id="result"></p>
+
+		<!-- テキスト表示用 -->
+		<p id="info"></p>
+
+		<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+		<script src="../initializeFirebase.js"></script>
+		<script src="../CommonFunc.js"></script>
+		<script src="profile.js"></script>
+	</body>
+</html>
+
+

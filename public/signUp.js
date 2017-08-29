@@ -5,8 +5,7 @@
 // 新規登録処理
 $('#newuserSubmit')[0].addEventListener('click', function(e)
 {
-	// エラーメッセージを空にする
-	$('#resultNewUser').empty();
+	$('#resultNewUser').empty();				// メッセージを空にする
 
 	// メールアドレス・パスワードを取得
 	var email = $('#newUserEmail').val();

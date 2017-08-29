@@ -4,45 +4,13 @@
 var firebaseDB = firebase.database();
 var tweetDBRef = firebaseDB.ref('tweet');
 
-//DOM取得
-var elm_logout			= document.getElementById('logout');
-var elm_loginUserInfo	= document.getElementById('loginUserInfo');
-var elm_tweetSubmit		= document.getElementById('newTweetSubmit');
-
-
-var UNKNOWN_USER_NAME_DEFAULT = '名無しのごんべえ';
-
-
 //=======================================================================
 //ログアウト処理
-elm_logout.addEventListener('click', function()
+$('#logout')[0].addEventListener('click', function()
 {
 //	alert("logoutしました。");
 	firebase.auth().signOut();
 });
-
-
-//=======================================================================
-// つぶやき新規登録
-elm_tweetSubmit.addEventListener('click', function()
-{
-	var userGUID = firebase.auth().currentUser.uid;
-	var currentTime = GetCurrentTimestamp();
-
-	tweetDBRef.push({
-		tweet : $('#newTweet').val(),
-		timestamp : currentTime.string,
-		guid : userGUID
-	}).then(function() {
-		// push 成功
-		$('#newTweet').val("");
-	}, function(error) {
-		// push 失敗
-	});
-
-});
-
-
 
 //=======================================================================
 function Snapshot(data)
@@ -145,9 +113,12 @@ firebase.auth().onAuthStateChanged(function(user)
 	// ログイン情報取得
 //	AlertAllProperty( user );
 	var userName = user.displayName;
-	if( !userName ) userName = UNKNOWN_USER_NAME_DEFAULT;
+	if( !userName ){
+		AutoLink("./profile/profile.html");
+		return;
+	}
 
-	elm_loginUserInfo.textContent = "ようこそ「" + userName + "」さん";
+	$('#loginUserInfo').text("ようこそ「" + userName + "」さん");
 //	alert(user.displayName);
 
 	// 画像

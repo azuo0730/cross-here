@@ -7,12 +7,8 @@ var firebaseStrg = firebase.storage();
 
 
 //=======================================================================
-//ログアウト処理
-$('#logout')[0].addEventListener('click', function()
-{
-//	alert("logoutしました。");
-	firebase.auth().signOut();
-});
+// エンターキー押下時
+/* $('#displayName').keypress(function(e){ if(e.which == 13){ $("#submit").click(); } }); */	// やっぱ要らん気がしたので消します。
 
 
 
@@ -121,6 +117,9 @@ firebase.auth().onAuthStateChanged(function(user)
 		AutoLink("../index.html");
 		return;
 	}
+
+	// ユーザ情報をヘッダに登録
+	SetHeaderUserInfo(user);
 
 	// ログイン中の処理
 	RefreshProfile();

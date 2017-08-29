@@ -4,99 +4,6 @@
 var firebaseDB = firebase.database();
 var tweetDBRef = firebaseDB.ref('tweet');
 
-//=======================================================================
-//ログアウト処理
-$('#logout')[0].addEventListener('click', function()
-{
-//	alert("logoutしました。");
-	firebase.auth().signOut();
-});
-
-//=======================================================================
-function Snapshot(data)
-{
-	var val = data.val();
-	var userGUID = val.guid;
-
-	var userDisplayName = '---';
-	var userImageURL = '';
-	firebaseDB.ref('users/' + userGUID).once('value').then(function(snapshot)
-	{
-		if( snapshot.val() )
-		{
-			// GUIDのユーザ情報がデータベースから取得できた場合
-			userImageURL = snapshot.val().userImageURL;
-			userDisplayName = snapshot.val().displayName;
-			EditTweetContent(data.key, userDisplayName, userImageURL, val.tweet, val.timestamp);
-		}else{
-			// GUIDのユーザ情報がデータベースから取得できなかった場合
-			EditTweetContent(data.key, '', '', val.tweet, val.timestamp);
-		}
-	});
-	AddTweetContent(data.key);
-//	alert( val.tweet + ', \n' + data.key );
-
-//	AlertAllProperty(val);
-}
-//=======================================================================
-function AddTweetContent(tweetGUID)
-{
-	var tableStr =	'<table class="tweetContent">';
-	tableStr +=		'  <tr>';
-	tableStr +=		'    <td width="50" rowspan="2" align="center" valign="top"><div class="tweetUserImageURL_' + tweetGUID + '" /></div></td>';
-	tableStr +=		'    <td class="userName"><div id="tweetUserName_' + tweetGUID +  '" /></div></td><td align="right" valign="bottom"><div id="tweetTimestamp_' + tweetGUID + '"></div></td>';
-	tableStr +=		'  </tr>';
-	tableStr +=		'  <tr>';
-	tableStr +=		'    <td colspan="2"><div id="tweetContent_' + tweetGUID + '" /></div></td>';
-	tableStr +=		'  </tr>';
-	tableStr +=		'</table>';
-	tableStr +=		'';
-	tableStr +=		'';
-
-	// 指定したdiv要素に表を加える
-	document.getElementById('tweetContentDiv').innerHTML = tableStr + document.getElementById('tweetContentDiv').innerHTML;
-}
-//=======================================================================
-function EditTweetContent(tweetGUID, displayName, imageURL, tweetContent, timestamp)
-{
-	// 画像
-	if( imageURL != '' )
-	{
-		var $userImage = $( '.tweetUserImageURL_' + tweetGUID );
-		$userImage.empty();
-
-		var img = new Image();
-		img.src = imageURL;
-		var width = 50;
-		var height = 50;
-		if( img.width > img.height )
-		{
-			// 横長画像
-			height = img.height * (width / img.width);
-		}else{
-			// 縦長画像
-			width = img.width * (height / img.height);
-		}
-//		alert('width:' + width + '\nheight:' + height);
-		$userImage.append($('<img>').attr({
-			src: imageURL,
-			width: width + 'px',
-			height: height + 'px',
-		}));
-	}
-
-	if( displayName == '' ) displayName = UNKNOWN_USER_NAME_DEFAULT;
-	// 名前
-	$('#tweetUserName_' + tweetGUID).text( displayName );
-
-	// タイムスタンプ
-	$('#tweetTimestamp_' + tweetGUID).text( timestamp );
-
-	// つぶやき内容
-//	alert( tweetContent );
-	tweetContent = tweetContent.replace(/\r?\n/g, "<br>");
-	$('#tweetContent_' + tweetGUID).html( tweetContent );
-}
 
 //=======================================================================
 //認証状態の確認
@@ -118,37 +25,8 @@ firebase.auth().onAuthStateChanged(function(user)
 		return;
 	}
 
-	$('#loginUserInfo').text("ようこそ「" + userName + "」さん");
-//	alert(user.displayName);
-
-	// 画像
-	var $currentUserImage = $(".userImage");
-	$currentUserImage.empty();
-	var img = new Image();
-	img.src = user.photoURL;
-	var width = 100;
-	var height = 100;
-	if( img.width > img.height )
-	{
-		// 横長画像
-		height = img.height * (width / img.width);
-	}else{
-		// 縦長画像
-		width = img.width * (height / img.height);
-	}
-//	alert('width:' + width + '\nheight:' + height);
-	$currentUserImage.append($('<img>').attr({
-		src: user.photoURL,
-		width: width + 'px',
-		height: height + 'px',
-		class: "userImage",
-	}));
-
-
-	// ツイート情報を取得
-	tweetDBRef.limitToLast(12).on('child_added', Snapshot);
-	tweetDBRef.limitToLast(12).on('child_changed', Snapshot);
-//	tweetDBRef.limitToLast(12).on('value', Snapshot);
+	// ユーザ情報をヘッダに登録
+	SetHeaderUserInfo(user);
 });
 
 

@@ -1,0 +1,24 @@
+<a href="{$root}main.html"><h1 class="cross-here">Cross Here</h1></a>
+<div align="right">
+	<table padding="0px" margin="0px">
+		<tr>
+			<td valign="bottom">
+				<a href="{$root}profile/profile.html"><p id="loginUserInfo" align="right" border="0"></p></a>
+			</td>
+			<td>
+				<div class="userImage" align="right"></div>
+			</td>
+			<td>
+				<p align="right">
+					<button id="logout" class="btn btn-primary">ログアウト</button>
+				</p>
+			</td>
+		</tr>
+		<script type="text/javascript">
+			$('#logout')[0].addEventListener('click', function()
+			{
+				firebase.auth().signOut();
+			});
+		</script>
+	</table>
+</div>

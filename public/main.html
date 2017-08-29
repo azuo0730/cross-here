@@ -10,60 +10,86 @@
 		<link href="bootstrap-4.0.0-beta-dist/css/bootstrap.min.css" rel="stylesheet">
 		<!-- jQuery読み込み -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 		<!-- BootstrapのJS読み込み -->
 		<script src="bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
 
 		<!-- 独自スタイルシートの読み込み -->
 		<link href="css/common.css" rel="stylesheet">
+
+		<!-- firebase関連読み込み -->
+		<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+		<script src="initializeFirebase.js"></script>
 	</head>
 	<body>
-		<div class="header">
-		<table width="100%" height="100%" border="2">
-		<tr><td>
-			<a href="./main.html"><h1 class="cross-here">Cross Here</h1></a>
-			<p id="loginUserInfo" align="right"></p>
-			<p align="right">
-				<a href="./profile/profile.html">プロフィール編集</a><br>
-				<button id="logout">ログアウト</button>
-			</p>
-		</td></tr>
-		</table>
+		<noscript>java scriptを有効にして下さい。<br></noscript>
+		
+		<!-- ヘッダー -->
+		<div class="cross-here-header">
+			<script src="header.js"></script>
+			<script type="text/javascript">
+				SetHeader("");
+			</script>
 		</div>
-		<div class="container card content">
-			<div align="right">
-				<table width="100%">
-					<tr>
-						<td>
-						</td>
-						<td width="50">
-							<div class="userImage" /></div>
-						</td>
-					</tr>
-				</table>
-			</div>
 
-			<div id="contents">
-				<div class="topNavi">
-					<div class="topNaviColumn">
-
-						<!-- つぶやいったー -->
-						<h2>つぶやいったー</h2>
-						<!-- 新しくつぶやく -->
-						<textarea id="newTweet" type="text" placeholder="今、何をしていますか？"cols="80" rows="5"></textarea>　<button id="newTweetSubmit" type="button">つぶやく</button>
-
-						<!-- テキスト表示用 -->
-						<div id="tweetContentDiv"></div>
-					</div>
+		<!-- コンテンツ -->
+		<div class="cross-here-content container card">
+			<div>
+				<div align="right">
+					あいうえお<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					かきくけこ<br>
+					さしすせそ
 				</div>
 			</div>
-
 		</div>
-		<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-		<script src="initializeFirebase.js"></script>
-		<script src="CommonFunc.js"></script>
-		<script src="main.js"></script>
+		<br>
 	</body>
+
+	<!-- その他, 独自制御読み込み -->
+	<script src="CommonFunc.js"></script>
+	<script src="main.js"></script>
 </html>
 
 

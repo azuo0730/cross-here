@@ -10,11 +10,16 @@
 		<link href="bootstrap-4.0.0-beta-dist/css/bootstrap.min.css" rel="stylesheet">
 		<!-- jQuery読み込み -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 		<!-- BootstrapのJS読み込み -->
 		<script src="bootstrap-4.0.0-beta-dist/js/bootstrap.min.js"></script>
 
 		<!-- 独自スタイルシートの読み込み -->
 		<link href="css/common.css" rel="stylesheet">
+
+		<!-- firebase関連読み込み -->
+		<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+		<script src="initializeFirebase.js"></script>
 	</head>
 	<body>
 		<div class="container card">
@@ -34,19 +39,17 @@
 						<ul id="resultNewUser">
 						</ul>
 					</div>
-					　<!-- <button id="testButton" type="button">テスト</button> -->
 				</div>
 			</div>
 
 			<a href="./">戻る</a>
-			<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
-			<script src="initializeFirebase.js"></script>
-			<script src="CommonFunc.js"></script>
-			<script src="signUp.js"></script>
-
 		</div>
 		</div>
 	</body>
+
+	<!-- その他, 独自制御読み込み -->
+	<script src="CommonFunc.js"></script>
+	<script src="signUp.js"></script>
 </html>
 
 

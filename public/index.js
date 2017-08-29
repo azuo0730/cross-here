@@ -5,8 +5,8 @@
 //ログイン処理
 $('#login')[0].addEventListener('click', function(e)
 {
-	var email = document.getElementById('email').value;
-	var password = document.getElementById('password').value;
+	var email = $('#email').val();
+	var password = $('#password').val();
 
 	firebase.auth().signInWithEmailAndPassword(email, password)
 	.catch(function(error){
